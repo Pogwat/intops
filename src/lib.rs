@@ -21,9 +21,15 @@ pub trait IntTraits:
     + Not<Output = Self>
     + BitAnd<Output = Self> + BitOr<Output = Self> + BitXor<Output = Self>
     + BitAndAssign + BitOrAssign + BitXorAssign
+    + Shl<u8, Output = Self> + Shr<u8, Output = Self>
+    + Shl<u16, Output = Self> + Shr<u16, Output = Self>
     + Shl<u32, Output = Self> + Shr<u32, Output = Self>
+    + Shl<u64, Output = Self> + Shr<u64, Output = Self>
     + Shl<usize, Output = Self> + Shr<usize, Output = Self>
+    + ShlAssign<u8> + ShrAssign<u8>
+    + ShlAssign<u16> + ShrAssign<u16>
     + ShlAssign<u32> + ShrAssign<u32>
+    + ShlAssign<u64> + ShrAssign<u64>
     + ShlAssign<usize> + ShrAssign<usize>
     + From<bool>
 {}
