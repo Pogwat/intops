@@ -1,4 +1,5 @@
 #![no_std]
+#[doc = include_str!("../README.md")]
 use core::ops::{
     Add, Sub, Mul, Div, Rem,
     AddAssign, SubAssign, MulAssign, DivAssign, RemAssign,
@@ -10,7 +11,7 @@ use core::fmt::{Debug, Display, Binary, Octal, UpperHex, LowerHex};
 use core::hash::Hash;
 use core::str::FromStr;
 
-// traits primitve integers share
+/// traits primitve integers share
 pub trait IntTraits:
     Sized + Copy + Default + Hash + Ord + Eq + PartialOrd + PartialEq + Send + Sync + 'static
     + Display + Debug + Binary + Octal + LowerHex + UpperHex
@@ -70,7 +71,7 @@ int_layout!(
     (usize,isize,usize),(isize,isize,usize)
 );
 
-// methods and consts primitve integers share
+/// methods and consts primitve integers share
 pub trait IntOps: IntLayout {
     fn checked_add(self, rhs: Self) -> Option<Self>;
     //fn checked_add_signed(self, rhs: Self::SignedSelf) -> Option<Self>;
