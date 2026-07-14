@@ -41,7 +41,7 @@ pub trait IntLayout: Sized+IntTraits {
     type BytesArray: AsRef<[u8]> + AsMut<[u8]> + Copy + Clone + Send + Sync + 'static; // this is always: [u8; Self::BYTES]. this fixes: "generic parameters may not be used in const operations"
 
     const BITS: u32;
-    const BYTES: usize;
+    const BYTES: u32;
     const MAX: Self;
     const MIN: Self;
     const ONE: Self;
@@ -56,7 +56,7 @@ macro_rules! int_layout {
                 type BytesArray = [u8; Self::BYTES];
 
                 const BITS: u32 = Self::BITS;
-                const BYTES: usize = Self::BITS as usize/8;
+                const BYTES: u32 = Self::BITS/8;
                 const MAX: Self = Self::MAX;
                 const MIN: Self = Self::MIN;
                 const ONE: Self = 1;
