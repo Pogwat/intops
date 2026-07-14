@@ -53,7 +53,7 @@ macro_rules! int_layout {
             impl IntLayout for $type {
                 type SignedSelf = $type_signed;
                 type UnsignedSelf = $type_unsigned;
-                type BytesArray = [u8; Self::BYTES];
+                type BytesArray = [u8; Self::BYTES as usize];
 
                 const BITS: u32 = Self::BITS;
                 const BYTES: u32 = Self::BITS/8;

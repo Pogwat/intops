@@ -1,6 +1,6 @@
 [package]
 name = "intops"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "methods and consts shared by all integers under a trait (for generic impls accros all ints)"
 license = "MIT"
