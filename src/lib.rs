@@ -256,7 +256,7 @@ macro_rules! intops {
     };
 }
 intops!(
-    (u8,i8,u8),(u16,i16,u16),(u32,i32,u32),(u64,i64,u64),
-    (i8,i8,u8),(i16,i16,u16),(i32,i32,u32),(i64,i64,u64),
+    (u8,i8,u8),(u16,i16,u16),(u32,i32,u32),(u64,i64,u64),(u128,i128,u128),
+    (i8,i8,u8),(i16,i16,u16),(i32,i32,u32),(i64,i64,u64),(i128,i128,u128),
     (usize,isize,usize),(isize,isize,usize)
     );
