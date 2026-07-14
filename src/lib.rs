@@ -25,6 +25,7 @@ pub trait IntTraits:
     + Shl<usize, Output = Self> + Shr<usize, Output = Self>
     + ShlAssign<u32> + ShrAssign<u32>
     + ShlAssign<usize> + ShrAssign<usize>
+    + From<bool>
 {}
 
 macro_rules! int_traits {
