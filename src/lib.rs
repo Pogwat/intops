@@ -10,6 +10,7 @@ use core::ops::{
 use core::fmt::{Debug, Display, Binary, Octal, UpperHex, LowerHex};
 use core::hash::Hash;
 use core::str::FromStr;
+use core::borrow::{Borrow,BorrowMut};
 
 /// traits primitve integers share
 pub trait IntTraits:
@@ -32,6 +33,7 @@ pub trait IntTraits:
     + ShlAssign<u64> + ShrAssign<u64>
     + ShlAssign<usize> + ShrAssign<usize>
     + From<bool>
+    + Borrow<Self> + BorrowMut<Self>
 {}
 
 macro_rules! int_traits {
