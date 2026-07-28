@@ -10,4 +10,5 @@ fn main() {
     assert_eq!(2_u8.get_some_bit(5),false);
     assert_eq!(2_u8.get_some_bit(1),true);
     assert_eq!(2_u8.get_some_bit(0),false);
+    assert_eq!(2_u8.count_ones(),1);
 }
