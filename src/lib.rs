@@ -258,21 +258,18 @@ pub trait SignedInts:IntOps {
     fn is_negative(self) -> bool;
     fn is_positive(self) -> bool;
     fn signum(self) -> Self;
-
     fn abs(self) -> Self;
     fn checked_abs(self) -> Option<Self>;
     fn overflowing_abs(self) -> (Self, bool);
     fn saturating_abs(self) -> Self;
     fn wrapping_abs(self) -> Self;
     fn unsigned_abs(self) -> Self::UnsignedSelf;
-
     fn cast_unsigned(self) -> Self::UnsignedSelf;
     // fn checked_cast_unsigned(self) -> Option<Self::UnsignedSelf>;
     // fn saturating_cast_unsigned(self) -> Self::UnsignedSelf;
     // fn strict_cast_unsigned(self) -> Self::UnsignedSelf;
     fn strict_sub_unsigned(self, rhs: Self::UnsignedSelf) -> Self;
     fn strict_add_unsigned(self, rhs: Self::UnsignedSelf) -> Self;
-
     fn checked_add_unsigned(self, rhs: Self::UnsignedSelf) -> Option<Self>;
     fn checked_sub_unsigned(self, rhs: Self::UnsignedSelf) -> Option<Self>;
     fn checked_neg(self) -> Option<Self>;
@@ -330,12 +327,10 @@ pub trait UnSignedInts: IntOps {
     fn next_power_of_two(self) -> Self;
     fn checked_next_power_of_two(self) -> Option<Self>;
     //fn wrapping_next_power_of_two(self) -> Self; // Added
-
     fn cast_signed(self) -> Self::SignedSelf;
     // fn checked_cast_signed(self) -> Option<Self::SignedSelf>;
     // fn saturating_cast_signed(self) -> Self::SignedSelf;
     // fn strict_cast_signed(self) -> Self::SignedSelf;
-
     // fn strict_add_signed(self, rhs: Self::SignedSelf) -> Self;
     // fn strict_sub_signed(self, rhs: Self::SignedSelf) -> Self;
     fn checked_add_signed(self, rhs: Self::SignedSelf) -> Option<Self>;
@@ -348,32 +343,24 @@ pub trait UnSignedInts: IntOps {
     fn overflowing_sub_signed(self, rhs: Self::SignedSelf) -> (Self, bool);
 }
 
-
-
 macro_rules! unsigned_methods {
     ($type:ty) => {
         #[inline(always)] fn is_power_of_two(self) -> bool { <$type>::is_power_of_two(self) }
         #[inline(always)] fn next_power_of_two(self) -> Self { <$type>::next_power_of_two(self) }
         #[inline(always)] fn checked_next_power_of_two(self) -> Option<Self> { <$type>::checked_next_power_of_two(self) }
         //#[inline(always)] fn wrapping_next_power_of_two(self) -> Self { <$type>::wrapping_next_power_of_two(self) }
-
         #[inline(always)] fn cast_signed(self) -> Self::SignedSelf { <$type>::cast_signed(self) }
         // #[inline(always)] fn checked_cast_signed(self) -> Option<Self::SignedSelf> { <$type>::checked_cast_signed(self) }
         // #[inline(always)] fn saturating_cast_signed(self) -> Self::SignedSelf { <$type>::saturating_cast_signed(self) }
         // #[inline(always)] fn strict_cast_signed(self) -> Self::SignedSelf { <$type>::strict_cast_signed(self) }
-
         // #[inline(always)] fn strict_add_signed(self, rhs: Self::SignedSelf) -> Self { <$type>::strict_add_signed(self, rhs) }
         // #[inline(always)] fn strict_sub_signed(self, rhs: Self::SignedSelf) -> Self { <$type>::strict_sub_signed(self, rhs) }
-
         #[inline(always)] fn checked_add_signed(self, rhs: Self::SignedSelf) -> Option<Self> { <$type>::checked_add_signed(self, rhs) }
         #[inline(always)] fn checked_sub_signed(self, rhs: Self::SignedSelf) -> Option<Self> { <$type>::checked_sub_signed(self, rhs) }
-
         #[inline(always)] fn saturating_add_signed(self, rhs: Self::SignedSelf) -> Self { <$type>::saturating_add_signed(self, rhs) }
         #[inline(always)] fn saturating_sub_signed(self, rhs: Self::SignedSelf) -> Self { <$type>::saturating_sub_signed(self, rhs) }
-
         #[inline(always)] fn wrapping_add_signed(self, rhs: Self::SignedSelf) -> Self { <$type>::wrapping_add_signed(self, rhs) }
         #[inline(always)] fn wrapping_sub_signed(self, rhs: Self::SignedSelf) -> Self { <$type>::wrapping_sub_signed(self, rhs) }
-
         #[inline(always)] fn overflowing_add_signed(self, rhs: Self::SignedSelf) -> (Self, bool) { <$type>::overflowing_add_signed(self, rhs) }
         #[inline(always)] fn overflowing_sub_signed(self, rhs: Self::SignedSelf) -> (Self, bool) { <$type>::overflowing_sub_signed(self, rhs) }
 
